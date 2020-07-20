@@ -22,3 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+[![Codeship Status for Camfucius/garfield-review](https://app.codeship.com/projects/7bfceee0-ace2-0138-76d2-4a64f987a7c0/status?branch=master)](https://app.codeship.com/projects/403539)
