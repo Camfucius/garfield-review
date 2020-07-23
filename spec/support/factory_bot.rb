@@ -9,4 +9,9 @@ FactoryBot.define do
     password_confirmation { 'password' }
   end
 
+  factory :product do
+    name {'name'}
+    url { 'www.example.com' }
+    img_url { '' }
+  end
 end
