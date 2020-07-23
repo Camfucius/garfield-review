@@ -16,19 +16,15 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
       get :index
 
       returned_json = JSON.parse(response.body)
-      # binding.pry
 
-      expect(returned_json[0]["name"]).to eq(product1.name)
-      expect(returned_json[0]["description"]).to eq(product1.description)
-      expect(returned_json[0]["url"]).to eq(product1.url)
+      expect(returned_json[0]["name"]).to eq(product1.name) 
       expect(returned_json[0]["image_url"]).to eq(product1.image_url)
 
       expect(returned_json[1]["name"]).to eq(product2.name)
-      expect(returned_json[1]["description"]).to eq(product2.description)
-      expect(returned_json[1]["url"]).to eq(product2.url)
       expect(returned_json[1]["image_url"]).to eq(product2.image_url)
     end
-
+  end 
+  
   describe "POST#Create" do
     let!(:product_data) { {product: {name: "garfield t-shirt", url: "https://www.amazon.com", image_url:"https://www.amazon.com", description: "100% fun with a cotton backing"}} }
     let!(:bad_product_data) { {product: {url:"https://www.amazon.com", image_url:"https://www.amazon.com", description:"100% fun with a cotton backing"}} }

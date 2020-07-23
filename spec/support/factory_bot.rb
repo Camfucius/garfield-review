@@ -12,6 +12,7 @@ FactoryBot.define do
   factory :product do
     name {'name'}
     url { 'www.example.com' }
-    img_url { '' }
+    image_url { 'www.example.com' }
+    description{'This is a good product'}
   end
 end
