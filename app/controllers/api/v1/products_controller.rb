@@ -1,5 +1,4 @@
 class Api::V1::ProductsController < ApiController
-  
   def index
     render json: Product.all
   end
@@ -18,5 +17,4 @@ class Api::V1::ProductsController < ApiController
   def product_params
     params.require(:product).permit(:name, :url, :image_url, :description)
   end
-
 end
