@@ -44,13 +44,13 @@ const ProductFormContainer = (props) => {
       })
       .then((response) => response.json())
       .then((body) => {
-        // debugger;
+        setShouldRedirect(true);
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   };
 
   if (shouldRedirect) {
-    return <Redirect to="/products/new" />;
+    return <Redirect to="/products" />;
   }
 
   return (

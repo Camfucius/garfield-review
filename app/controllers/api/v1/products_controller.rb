@@ -1,5 +1,8 @@
 class Api::V1::ProductsController < ApiController
-  # protect_from_forgery unless: -> { request.format.json? }
+
+  def index
+    render json: Product.all
+  end
 
   def show
     render json: { product: Product.all.sample }
@@ -17,6 +20,7 @@ class Api::V1::ProductsController < ApiController
   end
 
   private
+
   def product_params
     params.require(:product).permit(:name, :url, :image_url, :description)
   end
