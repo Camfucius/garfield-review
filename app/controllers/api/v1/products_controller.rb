@@ -10,10 +10,9 @@ class Api::V1::ProductsController < ApiController
     end
   end
 
-
   private
+
   def product_params
     params.require(:product).permit(:name, :url, :image_url, :description)
   end
-
 end

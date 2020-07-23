@@ -33,26 +33,7 @@ const ProductFormContainer = (props) => {
       },
       body: JSON.stringify(product),
     })
-      .then((response) => {
-        if (response.ok) {
-          return response;
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
-          throw error;
-        }
-      })
-      .then((response) => response.json())
-      .then((body) => {
-        // debugger;
-      })
-      .catch((error) => console.error(`Error in fetch: ${error.message}`));
-  };
-
-  if (shouldRedirect) {
-    return <Redirect to="/products/new" />;
   }
-
   return (
     <form
       className="callout secondary"
