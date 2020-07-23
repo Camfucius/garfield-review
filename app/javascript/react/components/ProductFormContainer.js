@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 
 const ProductFormContainer = (props) => {
   const [productRecord, setProductRecord] = useState({
@@ -7,6 +8,8 @@ const ProductFormContainer = (props) => {
     image_url: "",
     description: "",
   });
+
+  const [shouldRedirect, setShouldRedirect] = useState(false);
 
   const handleInputChange = (event) => {
     setProductRecord({
@@ -41,10 +44,14 @@ const ProductFormContainer = (props) => {
       })
       .then((response) => response.json())
       .then((body) => {
-        // debugger;we will come back later when we get our index page set up by react
+        // debugger;
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   };
+
+  if (shouldRedirect) {
+    return <Redirect to="/products/new" />;
+  }
 
   return (
     <form

@@ -35,18 +35,14 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
 
       it "should not add the product to the database" do
         previous_count = Product.count
-
         post :create, params: bad_product_data
         new_count = Product.count
-# binding.pry
         expect(previous_count).to eq(new_count)
       end
 
       it "returns an error message" do
         post :create, params: bad_product_data
-
         returned_json = JSON.parse(response.body)
-        # binding.pry
         expect(returned_json["errors"][0]).to eq("Name can't be blank")
       end
     end
