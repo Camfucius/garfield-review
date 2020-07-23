@@ -1,5 +1,5 @@
 class Api::V1::ProductsController < ApiController
-  # protect_from_forgery unless: -> { request.format.json? }
+  
   def index
     render json: Product.all
   end
