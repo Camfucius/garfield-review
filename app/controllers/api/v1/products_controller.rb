@@ -2,8 +2,9 @@ class Api::V1::ProductsController < ApiController
   # protect_from_forgery unless: -> { request.format.json? }
 
   def show
-      #binding.pry
-      @products = Product.find(params[:id])
+    render json: { product: Product.all.sample }
+    binding.pry
+    @products = Product.find(params[:id])
   end
 
   def create
