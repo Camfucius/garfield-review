@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import React from 'react'
 import ProductFormContainer from "./ProductFormContainer"
 import ProductShowContainer from './ProductShowContainer'
+import ProductsContainer from './ProductsContainer'
 
 export const App = (props) => {
   return (

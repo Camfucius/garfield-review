@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react'
+import Product from "./Product"
 
 const ProductShowContainer = (props) => {
-  const [getProduct, setProduct] = useState("")
-
+  const [getProduct, setProduct] = useState({
+    id: null,
+    name: "",
+    description: "",
+    url: "",
+    image_url: ""
+  })
+  
   useEffect(() => {
+    let productId = props.match.params.id
     debugger
-    fetch("/api/product.json")
-    .then(response => {
+    fetch(`/api/v1/products/${productId}`, {
+      credentials: "same-origin",
+    })
+      .then(response => {
       if (response.ok) {
         return response
       } else {
@@ -16,19 +26,20 @@ const ProductShowContainer = (props) => {
       }
     })
     .then(response => response.json())
-    .then(body => {
-      let product = body.product.text
-      setProduct(product) 
-    })
-    .catch(error => console.error(`Error in fetch: $(error.message}`))
+    .then(body => setProduct(body))
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
   return (
     <div>
-      {props.name} 
-      {props.url}
-      {props.description}
-      {props.image_url}
+      <Product 
+        key={getProduct.id}
+        id={getProduct.id}
+        name={getProduct.name} 
+        url={getProduct.url}
+        description={getProduct.description}
+        image_url={getProduct.image_url}
+      />
     </div>
   )
 }

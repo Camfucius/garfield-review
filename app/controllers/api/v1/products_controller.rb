@@ -5,9 +5,7 @@ class Api::V1::ProductsController < ApiController
   end
 
   def show
-    render json: { product: Product.all.sample }
-    binding.pry
-    @products = Product.find(params[:id])
+    render json: { product: Product.find(params[:id]) }
   end
 
   def create

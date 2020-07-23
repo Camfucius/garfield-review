@@ -4,9 +4,8 @@ Rails.application.routes.draw do
 
   get '/products', to: "homes#index"
   get '/products/new', to: "homes#index"
-
   get '/products/:id', to: "homes#index"
-  # I don't think this is actually using React
+
   resources :products, only: [:index]
 
   namespace :api do
