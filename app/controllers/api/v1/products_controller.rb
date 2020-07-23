@@ -1,8 +1,10 @@
 class Api::V1::ProductsController < ApiController
-  protect_from_forgery unless: -> { request.format.json? }
-
-  def create 
-    new_product = Product.new(product_params)  
+  def index
+    render json: Product.all
+  end
+  
+  def create
+    new_product = Product.new(product_params)
     if new_product.save
       render json: new_product
     else
@@ -11,7 +13,7 @@ class Api::V1::ProductsController < ApiController
   end
 
   private
-
+  
   def product_params
     params.require(:product).permit(:name, :url, :image_url, :description)
   end
