@@ -47,12 +47,6 @@ const ProductFormContainer = (props) => {
     if (validForSubmission()) {
       addNewProduct(productRecord);
     }
-    setProductRecord({
-      name: "",
-      description: "",
-      url: "",
-      image_url: ""
-    })
   };
 
   const addNewProduct = (product) => {
