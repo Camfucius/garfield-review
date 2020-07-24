@@ -52,7 +52,6 @@ const ProductFormContainer = (props) => {
   if (shouldRedirect) {
     return <Redirect to="/products" />;
   }
-
   return (
     <form
       className="callout secondary"
