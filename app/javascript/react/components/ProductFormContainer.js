@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
+import ErrorList from "./ErrorList";
+import _ from "lodash";
 
 const ProductFormContainer = (props) => {
   const [productRecord, setProductRecord] = useState({
@@ -8,6 +10,28 @@ const ProductFormContainer = (props) => {
     image_url: "",
     description: "",
   });
+
+  const [errors, setErrors] = useState({});
+
+  const validForSubmission = () => {
+    let submitErrors = {}
+    const requiredFields = [
+      "name",
+      "description",
+      "url",
+      "image_url"
+    ]
+    requiredFields.forEach((field) => {
+      if (productRecord[field].trim() === "") {
+        submitErrors = {
+          ...submitErrors,
+          [field]: "is blank",
+        }
+      }
+    })
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
+  }
 
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
@@ -20,7 +44,9 @@ const ProductFormContainer = (props) => {
 
   const onSubmitHandeler = (event) => {
     event.preventDefault();
-    addNewProduct(productRecord);
+    if (validForSubmission()) {
+      addNewProduct(productRecord);
+    }
   };
 
   const addNewProduct = (product) => {
@@ -58,6 +84,7 @@ const ProductFormContainer = (props) => {
       id="shipping-address-form"
       onSubmit={onSubmitHandeler}
     >
+      <ErrorList errors={errors} />
       <h1>New Garfield Product Form</h1>
       <div>
         <label htmlFor="name">Name:</label>
