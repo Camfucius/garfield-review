@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import ProductShow from "./ProductShow"
 
 const ProductShowContainer = (props) => {
+  let productId = props.match.params.id
+
   const [getProduct, setProduct] = useState({
     id: null,
     name: "",
@@ -11,11 +13,7 @@ const ProductShowContainer = (props) => {
   })
   debugger
   useEffect(() => {
-    let productId = props.match.params.id
-    debugger
-    fetch(`/api/v1/products/${productId}`, {
-      credentials: "same-origin",
-    })
+    fetch(`/api/v1/products/${productId}`)
       .then(response => {
       if (response.ok) {
         return response
@@ -29,17 +27,16 @@ const ProductShowContainer = (props) => {
     .then(body => setProduct(body))
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
-
+  
   return (
-    <div>
-      <ProductShow 
-        key={getProduct.id}
-        id={getProduct.id}
-        name={getProduct.name} 
-        url={getProduct.url}
-        description={getProduct.description}
-        image_url={getProduct.image_url}
-      />
+  
+    <div className="">
+      <h2>{getProduct.name}</h2>
+      <div>
+        <p>{getProduct.description} </p>
+        <a href={getProduct.url}> Buy Here! </a> 
+        <img src={getProduct.image_url} />
+      </div>
     </div>
   )
 }

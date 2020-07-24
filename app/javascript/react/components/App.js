@@ -10,7 +10,7 @@ export const App = (props) => {
       <Switch>
         <Route exact path="/products" component={ProductsContainer} />
         <Route exact path="/products/new" component={ProductFormContainer} />
-        <Route path="/products/:id" component={ProductShowContainer} />
+        <Route exact path="/products/:id" component={ProductShowContainer} />
       </Switch>
     </BrowserRouter>
   )
