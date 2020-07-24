@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Product from "./Product"
+import ProductShow from "./ProductShow"
 
 const ProductShowContainer = (props) => {
   const [getProduct, setProduct] = useState({
@@ -9,7 +9,7 @@ const ProductShowContainer = (props) => {
     url: "",
     image_url: ""
   })
-  
+  debugger
   useEffect(() => {
     let productId = props.match.params.id
     debugger
@@ -32,7 +32,7 @@ const ProductShowContainer = (props) => {
 
   return (
     <div>
-      <Product 
+      <ProductShow 
         key={getProduct.id}
         id={getProduct.id}
         name={getProduct.name} 

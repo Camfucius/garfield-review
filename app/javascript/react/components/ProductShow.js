@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Product = ({ id, name, description, url, image_url }) => {
+const ProductShow = ({ id, name, description, url, image_url }) => {
   return(
     <div>
       <h2>{name}</h2>
@@ -11,4 +11,4 @@ const Product = ({ id, name, description, url, image_url }) => {
   )
 }
 
-export default Product
+export default ProductShow
