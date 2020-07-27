@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import ProductShow from "./ProductShow"
+import React, { useState, useEffect } from "react";
+import ProductShow from "./ProductShow";
 
 const ProductShowContainer = (props) => {
   const [getProduct, setProduct] = useState({
@@ -7,36 +7,62 @@ const ProductShowContainer = (props) => {
     name: "",
     description: "",
     url: "",
-    image_url: ""
-  })
-  let productId = props.match.params.id
+    image_url: "",
+  });
+
+  const [reviewRecord, setReviewRecord] = useState([]);
+  let productId = props.match.params.id;
 
   useEffect(() => {
     fetch(`/api/v1/products/${productId}`)
-      .then(response => {
-      if (response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`, 
-          error = new Error(errorMessage)
-        throw error
-      }
+      .then((response) => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+          throw error;
+        }
+      })
+      .then((response) => response.json())
+      .then((body) => setProduct(body))
+      .catch((error) => console.error(`Error in fetch: ${error.message}`));
+  }, []);
+
+  useEffect(() => {
+    fetch(`/api/v1/products/${productId}/reviews`, {
+      credentials: "same-origin",
     })
-    .then(response => response.json())
-    .then(body => setProduct(body))
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
-  
+      .then((response) => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+          throw error;
+        }
+      })
+      .then((response) => response.json())
+      .then((body) => {
+        // debugger;
+        setReviewRecord(body);
+      })
+      .catch((error) => console.error(`Error in fetch: ${error.message}`));
+  }, []);
+
   return (
     <div className="">
-      <h2>{getProduct.name}</h2>
-      <div>
-        <p>{getProduct.description} </p>
-        <a href={getProduct.url}> Buy Here! </a> 
-        <img src={getProduct.image_url} />
-      </div>
+      <ProductShow
+        key={getProduct.id}
+        id={getProduct.id}
+        name={getProduct.name}
+        description={getProduct.description}
+        url={getProduct.url}
+        image_url={getProduct.image_url}
+        reviews={reviewRecord}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default ProductShowContainer
+export default ProductShowContainer;
