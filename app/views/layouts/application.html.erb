@@ -3,28 +3,49 @@
 
 <head>
   <title>GarfieldReview</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <!-- Bulma Version 0.8.2-->
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.2/css/bulma.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/hero.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+  <style>
+    .columns:nth-child(2) {
+      margin-top: -10rem;
+    }
+  </style>
 </head>
 
 <body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
 
-  <nav class="top-bar">
-    <h1><a href="/">Garfield Review Initiative</a></h1>
 
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
-      </ul>
-    </section>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item has-text-dark center" href="/">
+          Garfield Review Initiative
+        </a>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <%- if current_user -%>
+              <a class="button is-primary">
+                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+              </a>
+              <%- else -%>
+              <%=link_to 'Sign Up', new_user_registration_path, class: "button is-secondary"  %> <%= link_to 'Sign In', new_user_session_path, class: "button is-primary"   %> <%- end -%> </p>
+            </div>
+          </div>
+        </div>
+      </div>
   </nav>
-
   <%- flash.each do |key, value| -%>
   <div class="flash flash-<%= key %>">
     <%= value %>
@@ -32,6 +53,7 @@
   <%- end -%>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+
   <%= yield %>
 
   <%= javascript_include_tag 'application' %>
