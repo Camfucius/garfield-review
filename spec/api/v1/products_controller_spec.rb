@@ -25,6 +25,27 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
     end
   end 
   
+  describe "GET#Show" do
+    let!(:product1) {FactoryBot.create(:product)}
+
+    it "returns a status of 200" do 
+      get :show, params: { id: product1.id }
+
+      expect(response.status).to eq 200
+      expect(response.content_type).to eq "application/json"
+    end
+
+    it "returns json of /products/:id" do
+      get :show, params: { id: product1.id }
+      returned_json = JSON.parse(response.body)    
+        
+      expect(returned_json["name"]).to eq(product1.name) 
+      expect(returned_json["url"]).to eq(product1.url)
+      expect(returned_json["description"]).to eq(product1.description) 
+      expect(returned_json["image_url"]).to eq(product1.image_url) 
+    end
+  end 
+
   describe "POST#Create" do
     let!(:product_data) { {product: {name: "garfield t-shirt", url: "https://www.amazon.com", image_url:"https://www.amazon.com", description: "100% fun with a cotton backing"}} }
     let!(:bad_product_data) { {product: {url:"https://www.amazon.com", image_url:"https://www.amazon.com", description:"100% fun with a cotton backing"}} }
