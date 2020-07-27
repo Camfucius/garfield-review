@@ -4,7 +4,6 @@ class Api::V1::ProductsController < ApiController
   end
 
   def show
-    #render json: { product: Product.find(params[:id]) }
     render json: Product.find(params[:id]) 
   end
 
