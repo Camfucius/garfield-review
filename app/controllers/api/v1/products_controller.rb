@@ -2,7 +2,11 @@ class Api::V1::ProductsController < ApiController
   def index
     render json: Product.all
   end
-  
+
+  def show
+    render json: Product.find(params[:id]) 
+  end
+
   def create
     new_product = Product.new(product_params)
     if new_product.save
@@ -13,7 +17,7 @@ class Api::V1::ProductsController < ApiController
   end
 
   private
-  
+
   def product_params
     params.require(:product).permit(:name, :url, :image_url, :description)
   end
