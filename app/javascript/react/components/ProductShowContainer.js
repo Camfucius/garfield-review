@@ -24,8 +24,15 @@ const ProductShowContainer = (props) => {
           throw error;
         }
       })
-      .then((response) => response.json())
-      .then((body) => setProduct(body))
+      .then((response) => {
+        response.json();
+        // debugger;
+      })
+      .then((body) => {
+        // debugger;
+        setProduct(body.product);
+        setReviewRecord(body.product.reviews);
+      })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, []);
 

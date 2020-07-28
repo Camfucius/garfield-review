@@ -17,7 +17,8 @@ const ProductsIndexContainer = (props) => {
       })
       .then((response) => response.json())
       .then((body) => {
-        setProducts(body);
+        // debugger;
+        setProducts(body.products);
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, []);

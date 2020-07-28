@@ -10,7 +10,7 @@ const ProductShow = ({ id, name, description, url, image_url, reviews }) => {
           id={review.id}
           rating={review.rating}
           body={review.body}
-          user={review.username.username}
+          user={review}
         />
       </div>
     );
