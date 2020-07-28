@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProductShow from "./ProductShow";
+import ReviewFormConatiner from "./ReviewFormContainer";
 
 const ProductShowContainer = (props) => {
   const [getProduct, setProduct] = useState({
@@ -44,11 +45,36 @@ const ProductShowContainer = (props) => {
       })
       .then((response) => response.json())
       .then((body) => {
-        // debugger;
         setReviewRecord(body);
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, []);
+
+  const addNewReview = (reviewRecord) => {
+    fetch(`/api/v1/products/${productId}/reviews`, {
+      method: "POST",
+      credentials: "same-origin",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reviewRecord),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+          throw error;
+        }
+      })
+      .then((response) => response.json())
+      .then((body) => {
+        setReviewRecord([...reviewRecord, body]);
+      })
+      .catch((error) => console.error(`Error in fetch: ${error.message}`));
+  };
 
   return (
     <div className="">
@@ -61,6 +87,7 @@ const ProductShowContainer = (props) => {
         image_url={getProduct.image_url}
         reviews={reviewRecord}
       />
+      <ReviewFormConatiner addNewReview={addNewReview} />
     </div>
   );
 };
