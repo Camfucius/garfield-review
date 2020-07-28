@@ -31,14 +31,17 @@ const ProductsIndexContainer = (props) => {
         description={product.description}
         url={product.url}
         image_url={product.image_url}
+        
       />
     );
   });
 
   return (
     <div>
-      <h3> Products Index Container </h3>
-      {productTiles}
+      <h1 className="title is-light mt-4 pt-4 center ">Products</h1>
+      <div className="container is-6">
+        <div className="columns is-multiline">{productTiles}</div>
+      </div>
     </div>
   );
 };
