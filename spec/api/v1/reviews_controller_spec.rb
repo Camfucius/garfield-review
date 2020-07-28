@@ -26,5 +26,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(returned_json[1]["body"]).to eq(review2.body)
       expect(returned_json[1]["username"]["username"]).to eq(review2.user.username)
     end
-  end
+
+
 end

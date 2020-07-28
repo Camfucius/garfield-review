@@ -14,5 +14,9 @@ product2 = Product.create(name: "Garfield expression collage", url: "https://www
 user1 = User.create(email: "123@gmail.com", password: "password", username:"lala", first_name: "la", last_name: "lu")
 user2 = User.create(email: "456@yahoo.com", password: "12345", username:"kaka", first_name: "ka", last_name: "ka")
 
-review1 = Review.create(rating: 5, body: "this is a good product", product_id: product1.id, user_id: user1.id)
+review1 = Review.create(rating: -1, body: "this is a good product", product_id: product1.id, user_id: user1.id)
+review2 = Review.create(rating: 1, body: "I am gonna buy it", product_id: product2.id, user_id: user2.id)
+
+
+review3 = Review.create(rating: 3, body: "this is a good product", product_id: product1.id, user_id: user1.id)
 review2 = Review.create(rating: 1, body: "I am gonna buy it", product_id: product2.id, user_id: user2.id)

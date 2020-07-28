@@ -44,7 +44,6 @@ const ProductShowContainer = (props) => {
       })
       .then((response) => response.json())
       .then((body) => {
-        // debugger;
         setReviewRecord(body);
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
