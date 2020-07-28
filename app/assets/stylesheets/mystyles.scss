@@ -1,48 +1,66 @@
-// 1. Import the initial variables
-@import "bulma";
-// 2. Set your own initial variables
-  $black: rgb(0, 0, 0);
-// Update blue
-$blue: #72d0eb;
-// Add pink and its invert
-$pink: #ffb3b3;
-$pink-invert: #fff;
-// Add a serif family
-$family-serif: "Merriweather", "Georgia", serif;
+@charset "utf-8";
+@import "../../../node_modules/bulma/sass/utilities/initial-variables";
+@import "../../../node_modules/bulma/sass/utilities/functions";
+// Import a Google Font
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
 
-// 3. Set the derived variables
-// Use the new pink as the primary color
-$primary: $black;
-$primary-invert: $pink-invert;
-// Use the existing orange as the danger color
-$danger: #72d0eb;
-// Use the new serif family
-$family-primary: $family-serif;
+// Set your brand colors
+$dark-purple: #4a166c;
+$dark-purple-invert: findColorInvert($dark-purple);
+$purple: #7a44a3;
+
+$purple-invert: findColorInvert($purple);
+$light-purple: #c4afd4;
+
+$light-purple-invert: findColorInvert($light-purple);
+$orange: #faa41d;
+
+$orange-invert: findColorInvert($orange);
+$dark-orange: #d47023;
+$dark-orange-invert: findColorInvert($dark-orange);
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$grey-dark: $dark-purple;
+$grey-light: $light-purple;
+$primary: $orange;
+$link: $dark-orange;
+$info: $purple;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$button: $orange;
+$body-background-color: $purple;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
 
 // 4. Setup your Custom Colors
-$linkedin: #1091d6;
-$linkedin-invert: findColorInvert($linkedin);
-$twitter: #55acee;
-$twitter-invert: findColorInvert($twitter);
-$github: #333;
-$github-invert: findColorInvert($github);
 
-// 5. Add new color variables to the color map.
+@import "../../../node_modules/bulma/sass/utilities/derived-variables.scss";
 $addColors: (
-  "twitter": (
-    $twitter,
-    $twitter-invert,
+  "dark-purple": (
+    $dark-purple,
+    $dark-purple-invert,
   ),
-  "linkedin": (
-    $linkedin,
-    $linkedin-invert,
+  "purple": (
+    $purple,
+    $purple-invert,
   ),
-  "github": (
-    $github,
-    $github-invert,
+  "light-purple": (
+    $light-purple,
+    $light-purple-invert,
+  ),
+  "orange": (
+    $orange,
+    $orange-invert,
+  ),
+  "dark-orange": (
+    $dark-orange,
+    dark-orange-invert,
   ),
 );
 $colors: map-merge($colors, $addColors);
-
-// 6. Import the rest of Bulma
-@import "bulma";
+// Import only what you need from Bulma
+@import "../../../node_modules/bulma/bulma.sass";

@@ -13,21 +13,19 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <!-- Bulma Version 0.8.2-->
-  <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.2/css/bulma.min.css" />
-  <link rel="stylesheet" type="text/css" href="../css/hero.css">
-  <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+
   <style>
     .columns:nth-child(2) {
       margin-top: 10rem;
     }
   </style>
+  <link rel="stylesheet" href="../../../app/assets/stylesheets/customClasses.css">
 </head>
 
 <body>
+
   <nav class="navbar" role="navigation" aria-label="main navigation">
-
-
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div id="navbarBasicExample" class="navbar-menu has-background-primary">
       <div class="navbar-start">
         <a class="navbar-item has-text-dark center" href="/">
           Garfield Review Initiative
@@ -44,22 +42,22 @@
               <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
             </a>
             <%- else -%>
-            <%=link_to 'Sign Up', new_user_registration_path, class: "button is-secondary"  %> <%= link_to 'Sign In', new_user_session_path, class: "button is-primary"   %> <%- end -%> </p>
+            <%=link_to 'Sign Up', new_user_registration_path, class: "button is-secondary"  %> <%= link_to 'Sign In', new_user_session_path, class: "button is-purple"   %> <%- end -%> </p>
           </div>
         </div>
       </div>
     </div>
   </nav>
-  <%- flash.each do |key, value| -%>
-  <div class="flash flash-<%= key %>">
-    <%= value %>
+  <div class="angle--colour angle--top-right">
+    <%- flash.each do |key, value| -%>
+    <div class="flash flash-<%= key %>">
+      <%= value %>
+    </div>
+    <%- end -%>
+
+    <%= yield %>
+    <%= javascript_include_tag 'application' %>
   </div>
-  <%- end -%>
-
-  <%= yield %>
-
-  <%= javascript_include_tag 'application' %>
-
   <%- if Rails.env.development? || Rails.env.test? -%>
   <%= javascript_tag do %>
   window.railsEnv = '<%= Rails.env %>'

@@ -29,7 +29,7 @@ const ProductShowContainer = (props) => {
 
   return (
     <section className="container is-4">
-      <div className="columns is-4 features">
+      <div className="columns is-light features">
         <div className="column is-4 is-one-half">
             <div className="card is-4 is-shady">
               <div className="card-image">
@@ -48,7 +48,7 @@ const ProductShowContainer = (props) => {
                   <p>{getProduct.description}</p>
                   <div className="buttons center">
                   <span
-                    className="button has-text-dark is-4 is-seconday center"
+                    className="button has-text-dark is-4 has-background-info center"
                     data-target="modal-image2"
                   >
                     New Review

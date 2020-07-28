@@ -10,7 +10,7 @@ const ProductTile = ({ id, name, description, url, image_url }) => {
               <img src={image_url} alt="item image" />
             </figure>
           </div>
-          <div className="card-content">
+          <div className="card-content is-rounded">
             <div className="content">
               <h4>
                 {" "}
