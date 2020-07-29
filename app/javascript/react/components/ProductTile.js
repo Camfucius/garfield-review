@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const ProductTile = ({ id, name, description, url, image_url }) => {
   return (
-    <div>
+    <div key={id}>
       <h4>
-        <Link to={`/products/${id}`}> {name} </Link>
+        <Link to={`/products/${id}`}>{name}</Link>
       </h4>
       <img src={image_url} />
       <hr />
