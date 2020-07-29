@@ -5,7 +5,7 @@
     transform: rotate(0deg); }
   to {
     transform: rotate(359deg); } }
- 
+
 .delete, .modal-close, .button, .file, .breadcrumb, .pagination-previous,
 .pagination-next,
 .pagination-link,
@@ -15,10 +15,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .block {
-    background: #41ade5;
-    @include angle(after);
-  }
+
 .select:not(.is-multiple):not(.is-loading)::after, .navbar-link:not(.is-arrowless)::after {
   border: 3px solid transparent;
   border-radius: 2px;

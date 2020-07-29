@@ -229,9 +229,21 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  bulma-unknown
+  dotenv-unknown
+  jquery-unknown
+  pry-unknown
+  rspec-unknown
   ruby
-  bulma-rails (~> 0.9.0)
+  sass-unknown
+  shoulda-unknown
+  tzinfo-unknown
+  unknown
+  web-unknown
+
+DEPENDENCIES
   active_model_serializers
+  bulma-rails (~> 0.9.0)
   capybara
   database_cleaner
   devise
