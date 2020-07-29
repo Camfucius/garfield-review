@@ -38,9 +38,9 @@ const ProductsIndexContainer = (props) => {
 
   return (
     <div>
-      <h1 className="title is-light mt-4 pt-4 center ">Products</h1>
-      <div className="container is-6">
-        <div className="columns is-multiline">{productTiles}</div>
+      <h1 className="title is-light mt-4 pt-4 pl-4 center ">Products</h1>
+      <div className="container">
+        <div className="columns is-multiline features">{productTiles}</div>
       </div>
     </div>
   );

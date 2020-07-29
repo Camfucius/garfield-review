@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProductShow = ({ id, name, description, url, image_url }) => {
   return(
-    <div className="">
+    <div>
       <h2>{name}</h2>
       <div>
       <p>{description} </p>
