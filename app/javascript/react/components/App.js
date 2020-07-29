@@ -1,8 +1,8 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import React from 'react'
-import ProductFormContainer from "./ProductFormContainer"
-import ProductShowContainer from './ProductShowContainer'
-import ProductsContainer from './ProductsContainer'
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React from "react";
+import ProductFormContainer from "./ProductFormContainer";
+import ProductShowContainer from "./ProductShowContainer";
+import ProductsContainer from "./ProductsContainer";
 
 export const App = (props) => {
   return (
@@ -14,7 +14,7 @@ export const App = (props) => {
         <Route exact path="/products/:id" component={ProductShowContainer} />
       </Switch>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default App
+export default App;
