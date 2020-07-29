@@ -11,10 +11,6 @@ const Review = ({ id, rating, body, user, productId }) => {
         'Content-Type': 'application.json',
       },
     })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        console.log(responseJson)
-      })
   }
   return (
     <div key={id}>
