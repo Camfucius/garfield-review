@@ -54,3 +54,4 @@ gem 'devise'
 gem 'webpacker', '~> 3.3'
 gem "bulma-rails", "~> 0.9.0"
 gem 'sprockets', '~> 3.7.2'
+gem "active_model_serializers"
