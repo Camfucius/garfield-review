@@ -38,7 +38,7 @@ const ProductsIndexContainer = (props) => {
 
   return (
     <div>
-      <h1 className="title is-light mt-4 pt-4 pl-4 center ">Products</h1>
+      <h1 className="title mt-4 pt-4 pl-4 center has-text-light">Products</h1>
       <div className="container">
         <div className="columns is-multiline features">{productTiles}</div>
       </div>

@@ -10,10 +10,9 @@ const ProductTile = ({ id, name, description, url, image_url }) => {
             <img src={image_url} alt="item image" />
           </figure>
         </div>
-        <div className="card-content is-rounded">
+        <div className="card-content">
           <div className="content">
             <h4>
-              {" "}
               <Link to={`/products/${id}`}> {name} </Link>
             </h4>
             <p>{description}</p>
