@@ -1,6 +1,7 @@
 import React from "react";
 import Review from "./Review";
 
+
 const ProductShow = ({ id, name, description, url, image_url, reviews }) => {
   const productReviews = reviews.map((review) => {
     return (
