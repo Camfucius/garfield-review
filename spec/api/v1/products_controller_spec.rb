@@ -41,8 +41,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
     it "returns json of /products/:id" do
       get :show, params: { id: product1.id }
       returned_json = JSON.parse(response.body)  
-
-      binding.pry        
+           
       expect(returned_json["product"]["name"]).to eq(product1.name) 
       expect(returned_json["product"]["url"]).to eq(product1.url)
       expect(returned_json["product"]["description"]).to eq(product1.description) 
