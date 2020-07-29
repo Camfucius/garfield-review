@@ -8,6 +8,7 @@ const ProductShow = ({ id, name, description, url, image_url, reviews }) => {
       <div key={review.id}>
         <Review
           id={review.id}
+          productId={id}
           rating={review.rating}
           body={review.body}
           user={review.commenter_name}
