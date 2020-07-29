@@ -2,17 +2,11 @@ import React, { useState, useEffect } from "react";
 import ProductShow from "./ProductShow";
 
 const ProductShowContainer = (props) => {
-  const [getProduct, setProduct] = useState({
-    id: null,
-    name: "",
-    description: "",
-    url: "",
-    image_url: "",
-  });
+  const [product, setProduct] = useState({});
 
-  const [reviewRecord, setReviewRecord] = useState([]);
+  const [reviews, setReviews] = useState([]);
+
   let productId = props.match.params.id;
-
   useEffect(() => {
     fetch(`/api/v1/products/${productId}`)
       .then((response) => {
@@ -24,27 +18,12 @@ const ProductShowContainer = (props) => {
           throw error;
         }
       })
-      .then((response) => response.json())
-      .then((body) => setProduct(body))
-      .catch((error) => console.error(`Error in fetch: ${error.message}`));
-  }, []);
-
-  useEffect(() => {
-    fetch(`/api/v1/products/${productId}/reviews`, {
-      credentials: "same-origin",
-    })
       .then((response) => {
-        if (response.ok) {
-          return response;
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
-          throw error;
-        }
+        return response.json();
       })
-      .then((response) => response.json())
       .then((body) => {
-        setReviewRecord(body);
+        setProduct(body.product);
+        setReviews(body.product.reviews);
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, []);
@@ -52,13 +31,13 @@ const ProductShowContainer = (props) => {
   return (
     <div className="">
       <ProductShow
-        key={getProduct.id}
-        id={getProduct.id}
-        name={getProduct.name}
-        description={getProduct.description}
-        url={getProduct.url}
-        image_url={getProduct.image_url}
-        reviews={reviewRecord}
+        key={product.id}
+        id={product.id}
+        name={product.name}
+        description={product.description}
+        url={product.url}
+        image_url={product.image_url}
+        reviews={reviews}
       />
     </div>
   );

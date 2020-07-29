@@ -4,7 +4,8 @@ class Api::V1::ProductsController < ApiController
   end
 
   def show
-    render json: Product.find(params[:id]) 
+    product = Product.find(params[:id])
+    render json: product, serializer: ProductShowSerializer
   end
 
   def create
