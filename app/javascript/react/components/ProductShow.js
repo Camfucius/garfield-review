@@ -4,19 +4,18 @@ import Review from "./Review";
 const ProductShow = ({ id, name, description, url, image_url, reviews }) => {
   const productReviews = reviews.map((review) => {
     return (
-      <div key={id}>
+      <div key={review.id}>
         <Review
-          key={review.id}
           id={review.id}
           rating={review.rating}
           body={review.body}
-          user={review}
+          user={review.commenter_name}
         />
       </div>
     );
   });
   return (
-    <div className="">
+    <div>
       <h2>{name}</h2>
       <div>
         <p>{description} </p>

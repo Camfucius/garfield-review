@@ -11,8 +11,8 @@ product1 = Product.create(name: "Garfield Mmm lasagna teeshirt", url: "https://w
 product2 = Product.create(name: "Garfield expression collage", url: "https://www.amazon.com/Garfield-Expressions-Collage/dp/B07KW1HYDK/ref=sr_1_11_sspa?dchild=1&keywords=garfield&qid=1595354518&sr=8-11-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFVS1M5UTZVOUsxOFUmZW5jcnlwdGVkSWQ9QTA3MDk4MjJZREpZUkJCTE9TWlYmZW5jcnlwdGVkQWRJZD1BMDEzMzY0NjJFRFVBS0NCUFZQVDEmd2lkZ2V0TmFtZT1zcF9tdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl", description: "Imported directly from Muncie Indiana, another cotton shit that is 100% fun!", image_url: "https://m.media-amazon.com/images/I/A13usaonutL._AC_CLa%7C2140%2C2000%7C91apYihsNzL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0._UX679_.png")
 
 
-user1 = User.create(email: "123@gmail.com", password: "password", username:"lala", first_name: "la", last_name: "lu")
-user2 = User.create(email: "456@yahoo.com", password: "12345", username:"kaka", first_name: "ka", last_name: "ka")
+user1 = User.create(email: "123@gmail.com", password: "password", username:"Robert", first_name: "Rebert", last_name: "Ward")
+user2 = User.create(email: "456@yahoo.com", password: "12345", username:"Ellen", first_name: "Ellen", last_name: "Acevedo")
 
-review1 = Review.create(rating: 5, body: "this is a good product", product_id: product1.id, user_id: user1.id)
+review1 = Review.create(rating: 5, body: "This is a good product", product_id: product1.id, user_id: user1.id)
 review2 = Review.create(rating: 1, body: "I am gonna buy it", product_id: product2.id, user_id: user2.id)
