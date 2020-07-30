@@ -1,17 +1,17 @@
 import React from "react";
-
-const Review = ({ id, rating, body, user, productId }) => {
-  const onChangeDelete = event => {
-    event.preventDefault()
+import Vote from "./Vote";
+const Review = ({ id, rating, body, user, vote_count }) => {
+  const onChangeDelete = (event) => {
+    event.preventDefault();
     fetch(`/api/v1/products/${productId}/reviews/${id}.json`, {
       credentials: "same-origin",
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Accept': 'application.json',
-        'Content-Type': 'application.json',
+        Accept: "application.json",
+        "Content-Type": "application.json",
       },
-    })
-  }
+    });
+  };
   return (
     <div key={id}>
       <div className="column is-one-third">
@@ -22,7 +22,9 @@ const Review = ({ id, rating, body, user, productId }) => {
                 {user} - Rating: {rating}
               </h4>
               <p>{body}</p>
-              <div className="button" onClick={onChangeDelete}>Delete Review</div>
+              <div className="button" onClick={onChangeDelete}>
+                Delete Review
+              </div>
             </div>
           </div>
         </div>
@@ -32,4 +34,3 @@ const Review = ({ id, rating, body, user, productId }) => {
 };
 
 export default Review;
-

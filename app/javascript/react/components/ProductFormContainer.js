@@ -14,24 +14,20 @@ const ProductFormContainer = (props) => {
   const [errors, setErrors] = useState({});
 
   const validForSubmission = () => {
-    let submitErrors = {}
-    const requiredFields = [
-      "name",
-      "description",
-      "url",
-      "image_url"
-    ]
+    let submitErrors = {};
+    debugger;
+    const requiredFields = ["name", "description", "url", "image_url"];
     requiredFields.forEach((field) => {
       if (productRecord[field].trim() === "") {
         submitErrors = {
           ...submitErrors,
           [field]: "is blank",
-        }
+        };
       }
-    })
-    setErrors(submitErrors)
-    return _.isEmpty(submitErrors)
-  }
+    });
+    setErrors(submitErrors);
+    return _.isEmpty(submitErrors);
+  };
 
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
