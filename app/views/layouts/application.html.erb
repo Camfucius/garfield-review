@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title><b>GarfieldReview</b></title>
+  <title>GarfieldReview</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <meta charset="utf-8">
@@ -28,8 +28,8 @@
     <div id="navbarBasicExample" class="navbar-menu has-background-primary">
       <div class="navbar-start">
         <a class="navbar-item has-text-dark center" href="/"><b>
-          Garfield Review Initiative
-        </b></a>
+            Garfield Review Initiative </b></a>
+
         <div class="navbar-item">
           <a class="has-text-dark" href=" /products/new"><b>Add Product</b></a>
         </div>
@@ -39,7 +39,7 @@
           <div class="buttons">
             <%- if current_user -%>
             <a class="button is-primary has-text-weight-bold">
-              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "button is-purple has-text-weight-bold has-text-light" %>
             </a>
             <%- else -%>
             <%=link_to 'Sign Up', new_user_registration_path, class: "button is-secondary has-text-weight-bold"  %> <%= link_to 'Sign In', new_user_session_path, class: "button is-purple has-text-weight-bold"   %> <%- end -%> </p>
@@ -48,22 +48,25 @@
       </div>
     </div>
   </nav>
-  <%- flash.each do |key, value| -%>
-  <div class="flash flash-<%= key %>">
-    <%= value %>
+  <div id="garfimage" class="m-r-xl m-t-lg">
+    <%- flash.each do |key, value| -%>
+    <div class="flash flash-<%= key %>">
+      <%= value %>
+    </div>
+    <%- end -%>
+    <%= yield %>
+
+    <%= javascript_include_tag 'application' %>
+
+    <%- if Rails.env.development? || Rails.env.test? -%>
+    <%= javascript_tag do %>
+    window.railsEnv = '<%= Rails.env %>'
+    <%- end -%>
+    <%- end -%>
+    <%= javascript_pack_tag 'application' %>
+
+    <%= yield :extra_footer %>
   </div>
-  <%- end -%>
-  <%= yield %>
-  <%= javascript_include_tag 'application' %>
-
-  <%- if Rails.env.development? || Rails.env.test? -%>
-  <%= javascript_tag do %>
-  window.railsEnv = '<%= Rails.env %>'
-  <%- end -%>
-  <%- end -%>
-  <%= javascript_pack_tag 'application' %>
-
-  <%= yield :extra_footer %>
 </body>
 
 </html>

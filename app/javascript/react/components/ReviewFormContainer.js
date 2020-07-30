@@ -66,35 +66,55 @@ const ReviewFormContainer = (props) => {
   };
 
   return (
-    <form className="callout secondary" onSubmit={onSubmitHandeler}>
-      {errorMessage}
-      <h1>New Review Form</h1>
-      <div>
-        <label htmlFor="rating">Rating:</label>
-        <input
-          type="integer"
-          id="rating"
-          name="rating"
-          onChange={handleInputChange}
-          value={review.rating}
-        />
-      </div>
+    <div className="level">
+      <div className="p-l-lg">
+        <section className="section-padding-medium">
+          <div className="card is-shady center p-lg">
+            <form className="callout secondary" onSubmit={onSubmitHandeler}>
+              <p className="has-text-dark">{errorMessage}</p>
+              <h2 className="title has-text-purple center">New Review</h2>
+              <div className="p-b-sm">
+                <label htmlFor="rating">
+                  <input
+                    type="integer"
+                    id="rating"
+                    name="rating"
+                    onChange={handleInputChange}
+                    placeholder="Rating, 1-5"
+                    className="input is-purple is-focused inline"
+                    size="10"
+                    value={review.rating}
+                  />
+                </label>
+              </div>
 
-      <div>
-        <label htmlFor="body">Body:</label>
-        <input
-          type="text"
-          id="body"
-          name="body"
-          onChange={handleInputChange}
-          value={review.body}
-        />
-      </div>
+              <div>
+                <label htmlFor="body">
+                  <textarea
+                    cols="30"
+                    type="text"
+                    id="body"
+                    name="body"
+                    class="textarea is-primary is-focused center p-b-sm"
+                    onChange={handleInputChange}
+                    placeholder="Body"
+                    value={review.body}
+                  />
+                </label>
+              </div>
 
-      <div className="button-group">
-        <input type="submit" className="button" value="Submit " />
+              <div className="buttons p-b-sm p-t-sm center">
+                <input
+                  type="submit"
+                  className="button is-purple p-b-sm p-t-sm center"
+                  value="Submit"
+                />
+              </div>
+            </form>
+          </div>
+        </section>
       </div>
-    </form>
+    </div>
   );
 };
 

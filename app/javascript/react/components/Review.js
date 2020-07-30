@@ -13,8 +13,8 @@ const Review = ({ id, rating, body, user, productId }) => {
     })
   }
   return (
-    <div key={id}>
-      <div className="column is-one-third">
+
+      <div key={id} className="column is-one-third">
         <div className="card is-shady">
           <div className="card-content">
             <div className="content">
@@ -22,12 +22,11 @@ const Review = ({ id, rating, body, user, productId }) => {
                 {user} - Rating: {rating}
               </h4>
               <p>{body}</p>
-              <div className="button" onClick={onChangeDelete}>Delete Review</div>
+              <div className="button is-purple has-text-weight-bold" onClick={onChangeDelete}>Delete Review</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
