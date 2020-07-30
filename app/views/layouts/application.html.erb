@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>GarfieldReview</title>
+  <title><b>GarfieldReview</b></title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <meta charset="utf-8">
@@ -27,22 +27,22 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div id="navbarBasicExample" class="navbar-menu has-background-primary">
       <div class="navbar-start">
-        <a class="navbar-item has-text-dark center" href="/">
-          Garfield Review Initiative
-        </a>
+        <a class="navbar-item has-text-dark center" href="/"><b>
+            Garfield Review Initiative
+          </b></a>
         <div class="navbar-item">
-          <a class="has-text-dark" href=" /products/new">New Product</a>
+          <a class="has-text-dark" href=" /products/new"><b>Add Product</b></a>
         </div>
       </div>
       <div class="navbar-end ">
         <div class="navbar-item ">
           <div class="buttons">
             <%- if current_user -%>
-            <a class="button is-primary">
-              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            <a class="button is-primary has-text-weight-bold">
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "button is-purple has-text-weight-bold has-text-light" %>
             </a>
             <%- else -%>
-            <%=link_to 'Sign Up', new_user_registration_path, class: "button is-secondary"  %> <%= link_to 'Sign In', new_user_session_path, class: "button is-purple"   %> <%- end -%> </p>
+            <%=link_to 'Sign Up', new_user_registration_path, class: "button is-secondary has-text-weight-bold"  %> <%= link_to 'Sign In', new_user_session_path, class: "button is-purple has-text-weight-bold"   %> <%- end -%> </p>
           </div>
         </div>
       </div>

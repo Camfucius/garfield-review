@@ -1,16 +1,22 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<div class="title center has-text-weight-bold has-text-light">
+  <h1>Forgot your password?</h1>
+</div>
+<div class="has-text-weight-bold has-text-light center">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "email", :size => 50, :class => "is-primary has-text-weight-bold" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div>
+    <div class="actions">
+      <%= f.submit "Reset Password", :class => "button is-primary has-text-dark has-text-weight-bold " %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <% end %>
+
+</div>

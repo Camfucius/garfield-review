@@ -14,24 +14,19 @@ const ProductFormContainer = (props) => {
   const [errors, setErrors] = useState({});
 
   const validForSubmission = () => {
-    let submitErrors = {}
-    const requiredFields = [
-      "name",
-      "description",
-      "url",
-      "image_url"
-    ]
+    let submitErrors = {};
+    const requiredFields = ["name", "description", "url", "image_url"];
     requiredFields.forEach((field) => {
       if (productRecord[field].trim() === "") {
         submitErrors = {
           ...submitErrors,
           [field]: "is blank",
-        }
+        };
       }
-    })
-    setErrors(submitErrors)
-    return _.isEmpty(submitErrors)
-  }
+    });
+    setErrors(submitErrors);
+    return _.isEmpty(submitErrors);
+  };
 
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
@@ -79,8 +74,8 @@ const ProductFormContainer = (props) => {
     return <Redirect to="/products" />;
   }
   return (
-    <div >
-      <h1 className="title center">New Garfield Product Form</h1>
+    <div>
+      <h1 className="title has-text-light center">New Garfield Product Form</h1>
       <section className="container is-6 center">
         <form onSubmit={onSubmitHandeler}>
           <div className="column is-4">

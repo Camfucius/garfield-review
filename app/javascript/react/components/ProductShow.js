@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 const ProductShow = ({ id, name, description, url, image_url, reviews }) => {
   const productReviews = reviews.map((review) => {
     return (
-        <Review
+      <Review
         key={review.id}
-          id={review.id}
-          rating={review.rating}
-          body={review.body}
-          user={review.commenter_name}
-        />
+        id={review.id}
+        rating={review.rating}
+        body={review.body}
+        user={review.commenter_name}
+      />
     );
   });
   return (
@@ -26,7 +26,7 @@ const ProductShow = ({ id, name, description, url, image_url, reviews }) => {
             </div>
             <div className="card-content">
               <div className="content">
-                <h4>{name}</h4>
+                <h4 className="title has-text-dark-orange">{name}</h4>
                 <p>{description}</p>
                 <div className="buttons">
                   <a href={url}>
