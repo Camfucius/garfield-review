@@ -22,6 +22,7 @@ const Review = ({ id, rating, body, user, productId }) => {
                 {user} - Rating: {rating}
               </h4>
               <p>{body}</p>
+              <div className="button" onClick={onChangeDelete}>Delete Review</div>
             </div>
           </div>
         </div>
