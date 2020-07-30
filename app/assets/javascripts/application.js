@@ -11,11 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require foundation
+//= require jquery_ujs 
 //= require_self
 require_tree.$(function() {
   $(document).foundation();
 });
-
-
