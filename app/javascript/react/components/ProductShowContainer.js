@@ -3,7 +3,6 @@ import ProductShow from "./ProductShow";
 
 const ProductShowContainer = (props) => {
   const [product, setProduct] = useState({});
-
   const [reviews, setReviews] = useState([]);
 
   let productId = props.match.params.id;
