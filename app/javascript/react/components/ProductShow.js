@@ -27,7 +27,7 @@ const ProductShow = ({ id, name, description, url, image_url, reviews }) => {
         </div>
         <div className="card-content">
           <div className="content">
-            <h4>{name}</h4>
+            <h4 className="title has-text-dark-orange">{name}</h4>
             <p>{description}</p>
             <div className="buttons">
               <a href={url}>
