@@ -80,7 +80,7 @@ const ProductFormContainer = (props) => {
   }
   return (
     <div >
-      <h1 className="title center">New Garfield Product Form</h1>
+      <h1 className="title center has-text-light pt-4">New Garfield Product Form</h1>
       <section className="container is-6 center">
         <form onSubmit={onSubmitHandeler}>
           <div className="column is-4">
@@ -138,7 +138,7 @@ const ProductFormContainer = (props) => {
           </div>
           <div className="column is-4">
             <div className="button-group">
-              <input type="submit" className="button" value="Submit " />
+              <input type="submit" className="button is-primary has-text-dark has-text-weight-bold" value="Submit " />
             </div>
           </div>
         </form>

@@ -18,7 +18,7 @@ const Review = ({ id, rating, body, user, productId }) => {
         <div className="card is-shady">
           <div className="card-content">
             <div className="content">
-              <h4>
+              <h4 className="title has-text-dark-orange">
                 {user} - Rating: {rating}
               </h4>
               <p>{body}</p>
