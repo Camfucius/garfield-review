@@ -11,6 +11,7 @@ const ProductShow = ({ id, name, description, url, image_url, reviews }) => {
           rating={review.rating}
           body={review.body}
           user={review.commenter_name}
+          vote_count={review.vote_count}
         />
       </div>
     );
@@ -46,8 +47,8 @@ const ProductShow = ({ id, name, description, url, image_url, reviews }) => {
       </div>
     </div>
     <div>
-      {productReviews}
     </div>
+    {productReviews}
     </div>
   );
 };
