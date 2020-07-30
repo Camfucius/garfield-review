@@ -14,12 +14,14 @@ skip_before_action :verify_authenticity_token
       render json: {errors: new_review.errors.full_messages}
     end
   end
-    def destroy
-      @review = Review.find(destroy_review_params)
-      @review.destroy
-    end
+
+  def destroy
+    @review = Review.find(destroy_review_params)
+    @review.destroy
+  end
 
   private
+
   def review_params
     params.require(:review).permit(:rating, :body)
   end
