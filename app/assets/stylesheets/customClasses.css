@@ -1,6 +1,9 @@
 html {
   background: linear-gradient(110deg, #7a44a3 50%, #4a166c 50%);
 }
+body{
+  background-image: url("garfield.png");
+}
 .center {
   display: flex;
   justify-content: center;
