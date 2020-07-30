@@ -18,14 +18,13 @@ const Review = ({ id, rating, body, user, vote_count }) => {
         <div className="card is-shady">
           <div className="card-content">
             <div className="content">
-              <h4>
-                {user} - Rating: {rating} <Vote vote_count={vote_count} />
+              <h4 className="title has-text-dark-orange">
+                {user} - Rating: {rating}
               </h4>
               <p>{body}</p>
               <div className="button" onClick={onChangeDelete}>
                 Delete Review
               </div>
-
             </div>
           </div>
         </div>
