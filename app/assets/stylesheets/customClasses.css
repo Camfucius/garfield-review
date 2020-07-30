@@ -1,8 +1,11 @@
 html {
   background: linear-gradient(110deg, #7a44a3 50%, #4a166c 50%);
 }
-body{
+#garfimage {
   background-image: url("garfield.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .center {
   display: flex;
