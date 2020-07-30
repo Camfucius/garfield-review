@@ -16,22 +16,20 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
       get :index
 
       returned_json = JSON.parse(response.body)
-
-      expect(returned_json["products"][0]["name"]).to eq(product1.name) 
+      expect(returned_json["products"][0]["name"]).to eq(product1.name)
       expect(returned_json["products"][0]["image_url"]).to eq(product1.image_url)
-
       expect(returned_json["products"][1]["name"]).to eq(product2.name)
       expect(returned_json["products"][1]["image_url"]).to eq(product2.image_url)
     end
-  end 
-  
+  end
+
   describe "GET#Show" do
     let!(:user1){FactoryBot.create(:user)}
     let!(:product1) {FactoryBot.create(:product)}
     let!(:review1) {Review.create(rating: 1, body:"Awesome design on this shirt. It's a great gift for the Garfield fan in your life. My only concern is that it is a bit short in the length from neck to waste.", product: product1, user: user1)}
     let!(:review2) {Review.create(rating: 1, body:"My kid looked so cute for Thanksgiving in his Garfield tee!", product: product1, user: user1)}
 
-    it "returns a status of 200" do 
+    it "returns a status of 200" do
       get :show, params: { id: product1.id }
 
       expect(response.status).to eq 200
@@ -40,16 +38,16 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
 
     it "returns json of /products/:id" do
       get :show, params: { id: product1.id }
-      returned_json = JSON.parse(response.body)  
+      returned_json = JSON.parse(response.body)
 
-
-      expect(returned_json["product"]["name"]).to eq(product1.name) 
+      expect(returned_json["product"]["name"]).to eq(product1.name)
       expect(returned_json["product"]["url"]).to eq(product1.url)
-      expect(returned_json["product"]["description"]).to eq(product1.description) 
-      expect(returned_json["product"]["image_url"]).to eq(product1.image_url) 
+      expect(returned_json["product"]["description"]).to eq(product1.description)
+      expect(returned_json["product"]["image_url"]).to eq(product1.image_url)
       expect(returned_json["product"]["reviews"][0]["rating"]).to eq(review1.rating)
       expect(returned_json["product"]["reviews"][0]["body"]).to eq(review1.body)
-      expect(returned_json["product"]["reviews"][0]["commenter_name"]).to eq(user1.username)     
+      expect(returned_json["product"]["reviews"][0]["commenter_name"]).to eq(user1.username)
+
     end
   end 
 
@@ -74,7 +72,6 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
         post :create, params: product_data
 
         returned_json = JSON.parse(response.body)
-        
         expect(returned_json["product"]["name"]).to eq("garfield t-shirt")
         expect(returned_json["product"]["description"]).to eq("100% fun with a cotton backing")
         expect(returned_json["product"]["url"]).to eq("https://www.amazon.com")

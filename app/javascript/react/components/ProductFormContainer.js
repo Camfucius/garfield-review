@@ -74,59 +74,71 @@ const ProductFormContainer = (props) => {
     return <Redirect to="/products" />;
   }
   return (
-    <form
-      className="callout secondary"
-      id="shipping-address-form"
-      onSubmit={onSubmitHandeler}
-    >
-      <ErrorList errors={errors} />
-      <h1>New Garfield Product Form</h1>
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          onChange={handleInputChange}
-          value={productRecord.name}
-        />
-      </div>
-      <div>
-        <label htmlFor="url">URL:</label>
-        <input
-          type="text"
-          id="url"
-          name="url"
-          onChange={handleInputChange}
-          value={productRecord.url}
-        />
-      </div>
-      <div>
-        <label htmlFor="image_url">Image URL:</label>
-        <input
-          type="text"
-          id="image_url"
-          name="image_url"
-          onChange={handleInputChange}
-          value={productRecord.image_url}
-        />
-      </div>
-
-      <div>
-        <label htmlFor="description">Description:</label>
-        <input
-          type="text"
-          id="description"
-          name="description"
-          onChange={handleInputChange}
-          value={productRecord.description}
-        />
-      </div>
-
-      <div className="button-group">
-        <input type="submit" className="button" value="Submit " />
-      </div>
-    </form>
+    <div >
+      <h1 className="title center">New Garfield Product Form</h1>
+      <section className="container is-6 center">
+        <form onSubmit={onSubmitHandeler}>
+          <div className="column is-4">
+            <label htmlFor="name">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                size="50"
+                className="is-rounded"
+                placeholder="Name"
+                onChange={handleInputChange}
+                value={productRecord.name}
+              />
+            </label>
+          </div>
+          <div className="column is-4">
+            <label htmlFor="url">
+              <input
+                type="text"
+                id="url"
+                name="url"
+                size="50"
+                placeholder="URL"
+                onChange={handleInputChange}
+                value={productRecord.url}
+              />
+            </label>
+          </div>
+          <div className="column is-4">
+            <label htmlFor="image_url">
+              <input
+                type="text"
+                id="image_url"
+                name="image_url"
+                size="50"
+                placeholder="Image URL"
+                onChange={handleInputChange}
+                value={productRecord.image_url}
+              />
+            </label>
+          </div>
+          <div className="column is-4">
+            <label htmlFor="description">
+              <input
+                type="text"
+                id="description"
+                size="50"
+                name="description"
+                placeholder="Description"
+                onChange={handleInputChange}
+                value={productRecord.description}
+              />
+            </label>
+          </div>
+          <div className="column is-4">
+            <div className="button-group">
+              <input type="submit" className="button" value="Submit " />
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
   );
 };
 

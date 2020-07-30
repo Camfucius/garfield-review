@@ -1,0 +1,66 @@
+@charset "utf-8";
+@import "../../../node_modules/bulma/sass/utilities/initial-variables";
+@import "../../../node_modules/bulma/sass/utilities/functions";
+// Import a Google Font
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+
+// Set your brand colors
+$dark-purple: #4a166c;
+$dark-purple-invert: findColorInvert($dark-purple);
+$purple: #7a44a3;
+
+$purple-invert: findColorInvert($purple);
+$light-purple: #c4afd4;
+
+$light-purple-invert: findColorInvert($light-purple);
+$orange: #faa41d;
+
+$orange-invert: findColorInvert($orange);
+$dark-orange: #d47023;
+$dark-orange-invert: findColorInvert($dark-orange);
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$grey-dark: $dark-purple;
+$grey-light: $light-purple;
+$primary: $orange;
+$link: $dark-orange;
+$info: $purple;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$button: $orange;
+$body-background-color: $purple;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+// 4. Setup your Custom Colors
+
+@import "../../../node_modules/bulma/sass/utilities/derived-variables.scss";
+$addColors: (
+  "dark-purple": (
+    $dark-purple,
+    $dark-purple-invert,
+  ),
+  "purple": (
+    $purple,
+    $purple-invert,
+  ),
+  "light-purple": (
+    $light-purple,
+    $light-purple-invert,
+  ),
+  "orange": (
+    $orange,
+    $orange-invert,
+  ),
+  "dark-orange": (
+    $dark-orange,
+    dark-orange-invert,
+  ),
+);
+$colors: map-merge($colors, $addColors);
+// Import only what you need from Bulma
+@import "../../../node_modules/bulma/bulma.sass";

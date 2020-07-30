@@ -16,7 +16,7 @@ class Api::V1::ProductsController < ApiController
       render json: {errors: new_product.errors.full_messages}
     end
   end
-
+  
   private
 
   def product_params
