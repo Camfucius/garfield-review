@@ -1,18 +1,18 @@
 class Api::V1::ReviewsController < ApiController
-  skip_before_action :verify_authenticity_token
-  def index
+
+skip_before_action :verify_authenticity_token
+  def create
     product = Product.find(params[:product_id])
-    reviews = product.reviews
-    reviewwithuser = []
-    reviews.each do |review| 
-      newreview = {rating: review.rating,
-      body: review.body,
-      username: User.find(review.user_id),
-      id: review.id
-      }
-    reviewwithuser << newreview
+    new_review = Review.new(review_params)
+    new_review.product = product
+    user = current_user
+    new_review.user = user
+
+    if new_review.save
+      render json: new_review
+    else
+      render json: {errors: new_review.errors.full_messages}
     end
-    render json: reviewwithuser
   end
 
   def destroy
@@ -21,6 +21,7 @@ class Api::V1::ReviewsController < ApiController
   end
 
   private
+
   def review_params
     params.require(:review).permit(:rating, :body)
   end
@@ -28,4 +29,5 @@ class Api::V1::ReviewsController < ApiController
   def destroy_review_params
     params.require(:id)
   end
+
 end

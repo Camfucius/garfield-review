@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ProductShow from "./ProductShow";
+import ReviewFormConatiner from "./ReviewFormContainer";
 
 const ProductShowContainer = (props) => {
   const [product, setProduct] = useState({});
 
   const [reviews, setReviews] = useState([]);
 
-  let productId = props.match.params.id;
+  const productId = props.match.params.id;
   useEffect(() => {
     fetch(`/api/v1/products/${productId}`)
       .then((response) => {
@@ -28,6 +29,10 @@ const ProductShowContainer = (props) => {
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, []);
 
+  const addReview = (newReview) => {
+    setReviews([...reviews, newReview]);
+  };
+
   return (
     <div className="">
       <ProductShow
@@ -39,6 +44,7 @@ const ProductShowContainer = (props) => {
         image_url={product.image_url}
         reviews={reviews}
       />
+      <ReviewFormConatiner productId={productId} addReview={addReview} />
     </div>
   );
 };
