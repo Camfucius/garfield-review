@@ -7,7 +7,7 @@ const ProductShowContainer = (props) => {
 
   const [reviews, setReviews] = useState([]);
 
-  let productId = props.match.params.id;
+  const productId = props.match.params.id;
   useEffect(() => {
     fetch(`/api/v1/products/${productId}`)
       .then((response) => {
@@ -23,37 +23,14 @@ const ProductShowContainer = (props) => {
         return response.json();
       })
       .then((body) => {
-
         setProduct(body.product);
         setReviews(body.product.reviews);
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, []);
 
-  const addNewReview = (reviewRecord) => {
-    fetch(`/api/v1/products/${productId}/reviews`, {
-      method: "POST",
-      credentials: "same-origin",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(reviewRecord),
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response;
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
-          throw error;
-        }
-      })
-      .then((response) => response.json())
-      .then((body) => {
-        setReviewRecord([...reviewRecord, body]);
-      })
-      .catch((error) => console.error(`Error in fetch: ${error.message}`));
+  const addReview = (newReview) => {
+    setReviews([...reviews, newReview]);
   };
 
   return (
@@ -67,7 +44,7 @@ const ProductShowContainer = (props) => {
         image_url={product.image_url}
         reviews={reviews}
       />
-      <ReviewFormConatiner addNewReview={addNewReview} />
+      <ReviewFormConatiner productId={productId} addReview={addReview} />
     </div>
   );
 };
