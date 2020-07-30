@@ -2,13 +2,14 @@
   <h2>Log in</h2>
 </div>
 <div>
+
   <div class="field has-text-weight-bold has-text-light center">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
     <div class="field">
       <%= f.label :email, :class => "has-text-weight-bold has-text-light" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", :size => "50" %>
     </div>
-
     <div class="field">
       <%= f.label :password %><br />
       <%= f.password_field :password, autocomplete: "current-password", :size => "50" %>

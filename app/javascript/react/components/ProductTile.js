@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 const ProductTile = ({ id, name, description, url, image_url }) => {
   return (
+   
     <div className="column is-one-third">
+       <Link to={`/products/${id}`} className="has-text-dark-orange">
       <div className="card is-shady">
         <Link to={`/products/${id}`} className="has-text-dark-orange">
           <div className="card is-shady">
@@ -26,7 +28,9 @@ const ProductTile = ({ id, name, description, url, image_url }) => {
           </div>
         </Link>
       </div>
+      </Link>
     </div>
+
   );
 };
 
