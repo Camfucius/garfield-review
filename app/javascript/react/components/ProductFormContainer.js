@@ -15,7 +15,6 @@ const ProductFormContainer = (props) => {
 
   const validForSubmission = () => {
     let submitErrors = {};
-    debugger;
     const requiredFields = ["name", "description", "url", "image_url"];
     requiredFields.forEach((field) => {
       if (productRecord[field].trim() === "") {
