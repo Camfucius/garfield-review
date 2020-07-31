@@ -25,5 +25,6 @@ Once logged in, a visitor just needs to open the product form to have their favo
 # Why Bulma?
 - Utility Based
 - SASS pre-processing allows global color schemes and use of variables
+- much of the flex box functionality is built in
 - easy and flexible custamization of content on page
 - Can add utility functions easily through the generated .scss
